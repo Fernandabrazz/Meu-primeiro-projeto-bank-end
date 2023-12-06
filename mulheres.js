@@ -1,6 +1,6 @@
 const express = require("express") // iniciando o express
 const router = express.Router() // config. a primeira parte darota
-const cors = require(cors)//aqui estou trazendo o pacote cors que permite consumir essa api no front- end
+const cors = require('cors') //aqui estou trazendo o pacote cors que permite consumir essa api no front- end
 const conectaBancoDeDados = require("./bancoDeDados") // aqui estou ligando ao arquivo banco de dados
 conectaBancoDeDados() // estou chamando a função que conecta o banco de dados 
 
