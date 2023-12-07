@@ -1,7 +1,7 @@
 const express = require("express") // iniciando o express
 const router = express.Router() // config. a primeira parte darota
 const cors = require('cors') //aqui estou trazendo o pacote cors que permite consumir essa api no front- end
-const conectaBancoDeDados = require("./bancoDeDados") // aqui estou ligando ao arquivo banco de dados
+const conectaBancoDeDados = require('./bancoDeDados') // aqui estou ligando ao arquivo banco de dados
 conectaBancoDeDados() // estou chamando a função que conecta o banco de dados 
 
 const Mulher = require('./mulherModel')
@@ -9,6 +9,7 @@ const Mulher = require('./mulherModel')
 const app = express() //iniciando o app
 app.use (express.json())
 app.use(cors())
+
 const porta = 3333// criando a porta
 
 
@@ -20,7 +21,7 @@ async function mostraMulheres(request, response) {
 
       response.json(mulheresVindasDoBancoDeDados)
     
-  } catch(erro){
+  } catch (erro) {
     console.log(erro)
 
   }
@@ -51,6 +52,7 @@ async function mostraMulheres(request, response) {
  async function corrigeMulher(request, response){
 
     try{
+
     const mulherEncontrada  = await Mulher.findById(request.params.id)
   
     if (request.body.nome){
@@ -70,7 +72,7 @@ async function mostraMulheres(request, response) {
     
     const mulherAtualizadaNoBancoDeDados = await mulherEncontrada.save()
     response.json(mulherAtualizadaNoBancoDeDados)
-  }catch(erro){
+  }catch (erro) {
     console.log(erro)
 
   }
@@ -82,10 +84,11 @@ async function mostraMulheres(request, response) {
 async function deleteMulher(request, response) {
      
  try{
+
     await Mulher.findByIdAndDelete(request.params.id)
         response.jason({ mensagem: "Mulher deletada com Sucesso"})
 
-       } catch(erro){
+       } catch (erro) {
         console.log(erro)
        
       }

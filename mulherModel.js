@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const MulherSchema = new mongoose.Schema({
     nome:{
  type: String,
- required :  true
+ required : true
     },
     imagem:{
         type:String,

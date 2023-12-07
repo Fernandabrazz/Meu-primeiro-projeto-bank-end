@@ -1,14 +1,17 @@
-const mongoose = require ("mongoose")
+const mongoose = require ('mongoose')
 require('dotenv').config()
+
 async function conectaBancoDeDados(){
 try{
-    console.log("conexão com o banco de dados iniciou")
+    console.log('conexão com o banco de dados iniciou')
 
-await mongoose.connect(process.env.MONGO_URL)
+ await mongoose.connect(process.env.MONGO_URI)
 
-console.log("Conexão com  banco de dados feita com sucesso")
-} catch(erro){
-    console.log(erro)}
+console.log('Conexão com  banco de dados feita com sucesso')
+  } catch (erro) {
+    console.log(erro)
+  }
+
 }
 
 module.exports = conectaBancoDeDados
