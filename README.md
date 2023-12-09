@@ -16,3 +16,5 @@ Objetivos do Curso Online Eu ProgrAmo
 > Conectar uma rede de mulheres incríveis;
 
 > Incentivar a mentalidade de aprender com nossos erros!
+
+link: https://www.programaria.org/cursos-programaria/
