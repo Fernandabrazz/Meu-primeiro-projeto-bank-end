@@ -85,8 +85,8 @@ async function deleteMulher(request, response) {
      
  try{
 
-    await Mulher.findByIdAndDelete(request.params.id)
-        response.jason({ mensagem: "Mulher deletada com Sucesso"})
+    await Mulher.findByIdAndDelete(request.params.id);
+    response.json({ mensagem: "Mulher deletada com Sucesso" });
 
        } catch (erro) {
         console.log(erro)
@@ -95,10 +95,18 @@ async function deleteMulher(request, response) {
   
 }
 
-app.use(router.get('/mulheres', mostraMulheres)) // configrei rota GET /MULHERES
-app.use(router.post('/mulheres', criaMulher)) // configurei rota post /mulheres 
-app.use(router.patch('/mulheres/:id', corrigeMulher)) // configurei a rota PATCH/mulheres/id
-app.use(router.delete('/mulheres/:id', deleteMulher)) // configurei rota DELETE /mulheres
+// app.use(router.get('/mulheres', mostraMulheres)); // configrei rota GET /MULHERES
+// app.use(router.post('/mulheres', criaMulher)); // configurei rota post /mulheres 
+// app.use(router.patch('/mulheres/:id', corrigeMulher)) // configurei a rota PATCH/mulheres/id
+// app.use(router.delete('/mulheres/:id', deleteMulher)) // configurei rota DELETE /mulheres
+
+router.get('/mulheres', mostraMulheres);
+router.post('/mulheres', criaMulher);
+router.patch('/mulheres/:id', corrigeMulher);
+router.delete('/mulheres/:id', deleteMulher);
+
+
+app.use('/', router);
 
 //PORTA
 function mostraPorta()   {
